@@ -1,0 +1,78 @@
+<!doctype html> 
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Introduction to Web Development</title>
+        <link rel="stylesheet" href="styless.css">
+    </head>
+    <body style="background-color: green;"> 
+        
+
+        <section>
+            <ul>
+                <li class="list" data-filter="HTML">HTML</li>
+                <li class="list" data-filter="CSS">CSS</li>
+                <li class="list" data-filter="Javascript">Javascript</li>
+            </ul>
+            <div class="product">
+                
+                <div class="itemBox" data-item="HTML"><img src=""></div>
+                <div class="itemBox" data-item="HTML"><img src=""></div>
+                <div class="itemBox" data-item="HTML"><img src=""></div>
+                <div class="itemBox" data-item="HTML"><img src=""></div>
+                <div class="itemBox" data-item="HTML"><img src=""></div>
+                <div class="itemBox" data-item="HTML"><img src=""></div>
+                <div class="itemBox" data-item="HTML"><img src=""></div>
+                <div class="itemBox" data-item="HTML"><img src=""></div>
+                <div class="itemBox" data-item="HTML"><img src=""></div>
+                <div class="itemBox" data-item="CSS"><img src=""></div>
+                <div class="itemBox" data-item="CSS"><img src=""></div>
+                <div class="itemBox" data-item="CSS"><img src=""></div>
+                <div class="itemBox" data-item="CSS"><img src=""></div>
+                <div class="itemBox" data-item="CSS"><img src=""></div>
+                <div class="itemBox" data-item="CSS"><img src=""></div>
+                <div class="itemBox" data-item="CSS"><img src=""></div>
+                <div class="itemBox" data-item="CSS"><img src=""></div>   
+                <div class="itemBox" data-item="CSS"><img src=""></div>
+                <div class="itemBox" data-item="CSS"><img src=""></div>
+                <div class="itemBox" data-item="Javascript"><img src=""></div> 
+                <div class="itemBox" data-item="Javascript"><img src=""></div>
+                <div class="itemBox" data-item="Javascript"><img src=""></div>
+                <div class="itemBox" data-item="Javascript"><img src=""></div> 
+                <div class="itemBox" data-item="Javascript"><img src=""></div>
+                <div class="itemBox" data-item="Javascript"><img src=""></div>
+                <div class="itemBox" data-item="Javascript"><img src=""></div>
+                <div class="itemBox" data-item="Javascript"><img src=""></div> 
+            </div>
+        </section>
+
+        <script>
+            let list = document.querySelectorAll('.list');
+            let itemBox = document.querySelectorAll('.itemBox');
+
+            for(let i = 0; i<list.length; i++){
+                list[i].addEventListener('click', function(){
+                    for(let j = 0; j<list.length; j++){
+                        list[j].classList.remove ('active');
+                    }
+                    this.classList.add('active');
+
+                    let dataFilter = this.getAttribute('data-filter');
+
+                    for( let k = 0; k<itemBox.length; k++){
+                        itemBox[k].classList.remove('active');
+                        itemBox[k].classList.add('hide');
+
+                        if(itemBox[k].getAttribute('data-item') == dataFilter ||
+                        dataFilter == "all"){
+                            itemBox[k].classList.remove('hide');  
+                            itemBox[k].classList.add('active'); 
+                        }
+                    }
+
+                })
+            }
+        </script>
+    </body>
+</html>
